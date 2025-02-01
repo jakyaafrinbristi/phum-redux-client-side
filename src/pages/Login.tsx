@@ -1,6 +1,6 @@
 
 import { Button } from "antd";
-import { FieldValues, useForm } from "react-hook-form"
+import { FieldValues, useForm,  } from "react-hook-form"
 import { useLoginMutation } from "../redux/features/auth/authApi";
 import { useAppDispatch } from "../redux/hooks";
 import { setUser, TUser } from "../redux/features/auth/authSlice";
@@ -8,25 +8,27 @@ import { verifyToken } from "../utils/verifyToken";
 import { useNavigate } from "react-router";
 import { toast } from "sonner";
 import PHForm from "../components/form/PHForm";
+import PHInput from "../components/form/PHInput";
 
 
 const Login = () => {
   const navigate =useNavigate()
  
   const dispatch = useAppDispatch()
-  const {register,handleSubmit} = useForm({
-    defaultValues:{
-      userId:'A-0001',
-      password:'admin123'
-    }
-  });
+  // const {register,handleSubmit} = useForm({
+  //   defaultValues:{
+  //     userId:'A-0001',
+  //     password:'admin123'
+  //   }
+  // });
+
   const [login] = useLoginMutation();
   // const [login,{data,error}] = useLoginMutation();
   // console.log('data =>', data);
   // console.log('error =>', error);
 
  
-  const onSubmit =async(data : FieldValues)=>{
+  const onSubmit =async(data : FieldValues)=>{ 
     console.log(data)
 //    const toastId= toast.loading('Logging in')
 //     // console.log(data)
@@ -51,12 +53,14 @@ const Login = () => {
   return (
     <PHForm onSubmit={onSubmit}>
       <div>
-        <label htmlFor="id">ID:</label>
-        <input type="text" id="id" {...register('userId')}    />
+        {/* <label htmlFor="id">ID:</label> */}
+        <PHInput type="text" name="userId" label="ID:"></PHInput>
+        {/* <input type="text" id="id" {...register('userId')}    /> */}
       </div>
       <div>
-        <label htmlFor="password">Password:</label>
-        <input type="text" id="password"  {...register('password')}   />
+        {/* <label htmlFor="password">Password:</label> */}
+        <PHInput type="type" name="password" label="Password"></PHInput>
+        
       </div>
       <Button htmlType="submit">Login</Button>
       </PHForm>

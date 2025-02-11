@@ -7,6 +7,7 @@ import PHSelect from "../../../components/form/PHSelect"
 import PHDatePicker from "../../../components/form/PHDatePicker"
 import { useGetAcademicDepartmentsQuery, useGetAllSemestersQuery } from "../../../redux/features/admin/academicManagement.api"
 import { useCreateStudentMutation } from "../../../redux/features/admin/userManagement.api"
+import { toast } from "sonner"
 
 const studentDummyData={
   "password": "student123",
@@ -100,6 +101,7 @@ const CreateStudent = () => {
   }))
 
   const onSubmit : SubmitHandler<FieldValues> =(data)=>{
+    // const toastId = toast.loading('Creating....')
     console.log(data);
     const  studentData ={
       password : 'student123',

@@ -4,10 +4,11 @@ type TInputProps ={
     type:string;
     name:string;
     label?:string;
+    disabled?:boolean;
 }
 
 
-const PHInput = ({type,name,label}  : TInputProps) => {
+const PHInput = ({type,name,label,disabled}  : TInputProps) => {
     // const {register} =useFormContext();
 
  
@@ -17,7 +18,7 @@ const PHInput = ({type,name,label}  : TInputProps) => {
    <Controller name={name} 
 //    render={({field})=>(  <Input type={type} id={name}  {...register(name)}   />)}
    render={({field})=>
-  <Form.Item label={label}><Input {...field} type={type} id={name} /></Form.Item>
+  <Form.Item label={label}><Input {...field} type={type} id={name} disabled={disabled}/></Form.Item>
   }
    ></Controller>
   

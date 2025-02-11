@@ -11,6 +11,12 @@ import CreateAcademicDepartment from "../pages/Admin/academicManagement/CreateAc
 import AcademicDepartment from "../pages/Admin/academicManagement/AcademicDepartment";
 import StudentData from "../pages/Admin/userManagement/StudentData";
 import StudentDetails from "../pages/Admin/userManagement/StudentDetails";
+import RegisteredSemesters from "../pages/Admin/courseManagement/RegisteredSemesters";
+import CreateCourse from "../pages/Admin/courseManagement/CreateCourse";
+import Courses from "../pages/Admin/courseManagement/Courses";
+import OfferCourse from "../pages/Admin/courseManagement/OfferCourse";
+import OfferedCourse from "../pages/Faculty/OfferedCourse";
+import SemesterRegistration from "../pages/Admin/courseManagement/SemesterRegistration";
 
  
 // type TRoute ={
@@ -92,6 +98,43 @@ export const  adminPaths =[
                 name:'Create Faculty',
                 path:'create-faculty',
                 element:<CreateFaculty></CreateFaculty>
+            },
+           
+        ]
+    },
+    {
+        name:'Course Management',
+        children:[
+            {
+                name:'Semester Registration',
+                path:'semester-registration',
+                element:<SemesterRegistration></SemesterRegistration>
+            },
+            {
+                name:'Registered Semesters',
+                path:'registeres-semesters',
+                element:<RegisteredSemesters></RegisteredSemesters>
+            },
+            {
+                name:'Create Course',
+                path:'create-course',
+                element:<CreateCourse></CreateCourse>
+            },
+           
+            {
+                name:'Course',
+                path:'courses',
+                element:<Courses></Courses>
+            },
+            {
+                name:'Offer Course',
+                path:'offer-course',
+                element:<OfferCourse></OfferCourse>
+            },
+            {
+                name:'Offered Course',
+                path:'offered-course',
+                element:<OfferedCourse></OfferedCourse>
             },
            
         ]

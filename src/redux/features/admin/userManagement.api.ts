@@ -30,6 +30,30 @@ const userManagementApi = baseApi.injectEndpoints({
           };
         },
       }),
+      getAllFaculties: builder.query({
+        query: (args) => {
+          console.log(args);
+          const params = new URLSearchParams();
+  
+          if (args) {
+            args.forEach((item: TQueryParam) => {
+              params.append(item.name, item.value as string);
+            });
+          }
+  
+          return {
+            url: '/faculties',
+            method: 'GET',
+            params: params,
+          };
+        },
+        transformResponse: (response: TResponseRedux<any>) => {
+          return {
+            data: response.data,
+            meta: response.meta,
+          };
+        },
+      }),
 
 
 
@@ -43,6 +67,14 @@ const userManagementApi = baseApi.injectEndpoints({
           }),
     
     }),
+        changePassword:builder.mutation({
+          query:(data)=>({
+            url:'/auth/change-password',
+            method:'POST',
+            body:data,
+          }),
+    
+    }),
     }),
 });
-export const {useCreateStudentMutation,useGetAllStudentsQuery}=userManagementApi;  
+export const {useCreateStudentMutation,useGetAllStudentsQuery,useGetAllFacultiesQuery,useChangePasswordMutation}=userManagementApi;  
